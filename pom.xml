@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.lalahtalks</groupId>
+        <artifactId>spring-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>secrets-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <paging.version>1.0-SNAPSHOT</paging.version>
+        <secrets-client.version>1.0-SNAPSHOT</secrets-client.version>
+        <starter.version>1.0-SNAPSHOT</starter.version>
+        <testcontainers.version>2.0.7</testcontainers.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.lalahtalks</groupId>
+            <artifactId>paging-infra-dto</artifactId>
+            <version>${paging.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.lalahtalks</groupId>
+            <artifactId>secrets-client-dto</artifactId>
+            <version>${secrets-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.lalahtalks</groupId>
+            <artifactId>secrets-client-http-contract</artifactId>
+            <version>${secrets-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.lalahtalks</groupId>
+            <artifactId>server-spring-boot-starter</artifactId>
+            <version>${starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- runtime -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>com.playtika.testcontainers</groupId>
+            <artifactId>embedded-postgresql</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-wiremock</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
