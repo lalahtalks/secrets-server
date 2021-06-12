@@ -24,7 +24,9 @@ public class JpaSecretRepository implements SecretRepository {
     public Page<Secret> find(AccountId accountId, PageRequest request) {
         var offset = request.getPageNumber() * request.getPageSize();
         var totalElements = secretEntityRepository.countByAccountId(accountId.getValue());
-        var totalPages = (int) totalElements % request.getPageSize();
+        var totalPages = totalElements != 0
+                ? ((int) totalElements / request.getPageSize()) + 1
+                : 0;
         var entities = secretEntityRepository.findAllByAccountIdAndPageRequest(
                 accountId.getValue(),
                 request.getPageSize(),
