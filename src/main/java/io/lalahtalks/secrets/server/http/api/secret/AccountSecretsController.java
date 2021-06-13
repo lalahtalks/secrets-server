@@ -2,7 +2,7 @@ package io.lalahtalks.secrets.server.http.api.secret;
 
 import io.lalahtalks.paging.domain.PageRequest;
 import io.lalahtalks.paging.dto.PageDto;
-import io.lalahtalks.paging.infra.dto.PageDtoMapper;
+import io.lalahtalks.paging.dto.PageDtoMapper;
 import io.lalahtalks.secrets.client.dto.SecretCreatedDto;
 import io.lalahtalks.secrets.client.dto.SecretCreationRequestDto;
 import io.lalahtalks.secrets.client.dto.SecretDto;

@@ -1,6 +1,5 @@
 package io.lalahtalks.secrets.server;
 
-import io.lalahtalks.paging.infra.dto.PageDtoMapper;
 import io.lalahtalks.secrets.server.domain.IdGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,11 +23,6 @@ public class SecretsServer {
     @Bean
     public IdGenerator idGenerator() {
         return () -> UUID.randomUUID().toString();
-    }
-
-    @Bean
-    public PageDtoMapper pageDtoMapper() {
-        return new PageDtoMapper();
     }
 
 }
