@@ -1,11 +1,8 @@
 package io.lalahtalks.secrets.server;
 
 import io.lalahtalks.secrets.client.dto.SecretPageDto;
-import io.lalahtalks.secrets.server.domain.IdGenerator;
-import io.lalahtalks.secrets.server.domain.secret.SecretRepository;
 import io.lalahtalks.secrets.server.test.ContextAware;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
@@ -18,13 +15,7 @@ import static io.lalahtalks.secrets.server.test.DataSecret.SECRET_PAGE_DTO;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GetSecretPageTest extends ContextAware {
-
-    @Autowired
-    private IdGenerator idGenerator;
-
-    @Autowired
-    private SecretRepository secretRepository;
+class GetSecretPageTest extends ContextAware {
 
     @Test
     @Sql({"/sql/clean.sql", "/sql/insert.sql"})
