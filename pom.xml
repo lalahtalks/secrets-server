@@ -16,8 +16,7 @@
     <properties>
         <paging.version>1.0-SNAPSHOT</paging.version>
         <secrets-client.version>1.0-SNAPSHOT</secrets-client.version>
-        <starter.version>1.0-SNAPSHOT</starter.version>
-        <testcontainers.version>2.0.7</testcontainers.version>
+        <spring-starters.version>1.0-SNAPSHOT</spring-starters.version>
     </properties>
 
     <build>
@@ -30,10 +29,10 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-jaxb-annotations</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.module</groupId>-->
+<!--            <artifactId>jackson-module-jaxb-annotations</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.lalahtalks</groupId>
             <artifactId>paging-dto-spring-boot-starter</artifactId>
@@ -52,7 +51,7 @@
         <dependency>
             <groupId>io.lalahtalks</groupId>
             <artifactId>server-spring-boot-starter</artifactId>
-            <version>${starter.version}</version>
+            <version>${spring-starters.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,7 +74,6 @@
         <dependency>
             <groupId>com.playtika.testcontainers</groupId>
             <artifactId>embedded-postgresql</artifactId>
-            <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -95,7 +93,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

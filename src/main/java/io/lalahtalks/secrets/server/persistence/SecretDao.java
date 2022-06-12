@@ -6,14 +6,14 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface SecretEntityRepository extends JpaRepository<SecretEntity, String> {
+public interface SecretDao extends JpaRepository<SecretJpaDto, String> {
 
     @Query(nativeQuery = true,
             value = "select * from secret"
                     + " where account_id = :account_id"
                     + " limit :limit"
                     + " offset :offset")
-    List<SecretEntity> findAllByAccountIdAndPageRequest(
+    List<SecretJpaDto> findAllByAccountIdAndPageRequest(
             @Param("account_id") String accountId,
             @Param("limit") Integer limit,
             @Param("offset") Integer offset);

@@ -9,27 +9,24 @@ import org.springframework.stereotype.Component;
 @Component
 class SecretDtoMapper {
 
-    SecretDto toDto(Secret secret) {
-        return SecretDto.builder()
-                .id(secret.getId().getValue())
-                .name(secret.getName().getValue())
-                .encoded(secret.getEncoded().getValue())
-                .createdAt(secret.getCreatedAt())
-                .build();
+    SecretDto to(Secret secret) {
+        return new SecretDto(
+                secret.id().value(),
+                secret.name().value(),
+                secret.encoded().value(),
+                secret.createdAt());
     }
 
-    SecretCreatedDto toDto(SecretCreated created) {
-        return SecretCreatedDto.builder()
-                .secretId(created.getSecretId().getValue())
-                .createdAt(created.getCreatedAt())
-                .build();
+    SecretCreatedDto to(SecretCreated created) {
+        return new SecretCreatedDto(
+                created.secretId().value(),
+                created.createdAt());
     }
 
-    SecretCreationRequest fromDto(SecretCreationRequestDto requestDto) {
-        return SecretCreationRequest.builder()
-                .name(new SecretName(requestDto.getName()))
-                .encoded(new SecretEncoded(requestDto.getEncoded()))
-                .build();
+    SecretCreationRequest from(SecretCreationRequestDto requestDto) {
+        return new SecretCreationRequest(
+                new SecretName(requestDto.name()),
+                new SecretEncoded(requestDto.encoded()));
     }
 
 }

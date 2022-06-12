@@ -1,6 +1,7 @@
 package io.lalahtalks.secrets.server;
 
-import io.lalahtalks.secrets.server.domain.IdGenerator;
+import io.lalahtalks.secrets.server.domain.secret.SecretId;
+import io.lalahtalks.secrets.server.domain.secret.SecretIdGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +22,8 @@ public class SecretsServer {
     }
 
     @Bean
-    public IdGenerator idGenerator() {
-        return () -> UUID.randomUUID().toString();
+    public SecretIdGenerator idGenerator() {
+        return () -> new SecretId(UUID.randomUUID().toString());
     }
 
 }

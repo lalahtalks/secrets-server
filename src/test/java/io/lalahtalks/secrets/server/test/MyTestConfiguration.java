@@ -1,6 +1,6 @@
 package io.lalahtalks.secrets.server.test;
 
-import io.lalahtalks.secrets.server.domain.IdGenerator;
+import io.lalahtalks.secrets.server.domain.secret.SecretIdGenerator;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +22,8 @@ public class MyTestConfiguration {
 
     @Bean
     @Primary
-    public IdGenerator idGenerator() {
-        return Mockito.mock(IdGenerator.class);
+    public SecretIdGenerator idGenerator() {
+        return Mockito.mock(SecretIdGenerator.class);
     }
 
 }

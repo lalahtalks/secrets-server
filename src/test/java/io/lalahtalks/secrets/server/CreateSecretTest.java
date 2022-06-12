@@ -1,7 +1,7 @@
 package io.lalahtalks.secrets.server;
 
 import io.lalahtalks.secrets.client.dto.SecretCreatedDto;
-import io.lalahtalks.secrets.server.domain.IdGenerator;
+import io.lalahtalks.secrets.server.domain.secret.SecretIdGenerator;
 import io.lalahtalks.secrets.server.domain.secret.SecretRepository;
 import io.lalahtalks.secrets.server.test.ContextAware;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import static org.mockito.Mockito.doReturn;
 class CreateSecretTest extends ContextAware {
 
     @Autowired
-    private IdGenerator idGenerator;
+    private SecretIdGenerator secretIdGenerator;
 
     @Autowired
     private SecretRepository secretRepository;
@@ -33,8 +33,8 @@ class CreateSecretTest extends ContextAware {
     @Test
     @Sql("/sql/clean.sql")
     void it_works() {
-        doReturn(SECRET_1_ID_VALUE)
-                .when(idGenerator)
+        doReturn(SECRET_1_ID)
+                .when(secretIdGenerator)
                 .generate();
 
         var response = given()
