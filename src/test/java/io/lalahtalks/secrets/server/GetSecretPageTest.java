@@ -29,7 +29,8 @@ class GetSecretPageTest extends ContextAware {
                 .get(ACCOUNT_SECRETS_PATH)
                 .then()
                 .statusCode(HttpStatus.OK.value())
-                .extract().as(SecretPageDto.class);
+                .extract()
+                .as(SecretPageDto.class);
 
         assertThat(response).usingRecursiveComparison().isEqualTo(SECRET_PAGE_DTO);
     }

@@ -1,9 +1,6 @@
 package io.lalahtalks.secrets.server.persistence;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
@@ -17,11 +14,8 @@ public class SecretJpaDto {
     @Column(name = "accountId")
     String accountId;
 
-    @Column(name = "name")
-    String name;
-
-    @Column(name = "encoded")
-    String encoded;
+    @Embedded
+    SecretEncodedJpaDto encoded;
 
     @Column(name = "created_at")
     Instant createdAt;
@@ -30,10 +24,9 @@ public class SecretJpaDto {
 
     }
 
-    public SecretJpaDto(String id, String accountId, String name, String encoded, Instant createdAt) {
+    public SecretJpaDto(String id, String accountId, SecretEncodedJpaDto encoded, Instant createdAt) {
         this.id = id;
         this.accountId = accountId;
-        this.name = name;
         this.encoded = encoded;
         this.createdAt = createdAt;
     }

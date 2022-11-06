@@ -45,7 +45,8 @@ class CreateSecretTest extends ContextAware {
                 .post(ACCOUNT_SECRETS_PATH)
                 .then()
                 .statusCode(HttpStatus.CREATED.value())
-                .extract().as(SecretCreatedDto.class);
+                .extract()
+                .as(SecretCreatedDto.class);
 
         assertThat(response).isEqualTo(SECRET_CREATED_DTO);
 
@@ -63,7 +64,8 @@ class CreateSecretTest extends ContextAware {
                 .post(ACCOUNT_SECRETS_PATH)
                 .then()
                 .statusCode(HttpStatus.FORBIDDEN.value())
-                .extract().as(Problem.class);
+                .extract()
+                .as(Problem.class);
 
         assertThat(response.getStatus()).isEqualTo(Status.FORBIDDEN);
     }

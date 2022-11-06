@@ -7,7 +7,6 @@ import java.time.Instant;
 public record Secret(
         SecretId id,
         AccountId accountId,
-        SecretName name,
         SecretEncoded encoded,
         Instant createdAt) {
 
